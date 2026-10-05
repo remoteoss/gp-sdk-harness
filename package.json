@@ -2,6 +2,7 @@
   "name": "gp-sdk-harness",
   "private": true,
   "version": "0.1.0",
+  "license": "MIT",
   "type": "module",
   "description": "Local test harness for the Remote GP admin and employee onboarding flows, built to answer an embedded partner's bank-details questions.",
   "engines": {
