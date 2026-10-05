@@ -1,0 +1,36 @@
+{
+  "name": "gp-sdk-harness",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Local test harness for the Remote GP admin and employee onboarding flows, built to answer an embedded partner's bank-details questions.",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,green \"npm:server\" \"npm:client\"",
+    "server": "node server/index.js",
+    "client": "vite",
+    "mint": "node scripts/mint-token.mjs",
+    "seed": "node scripts/seed-employment.mjs",
+    "test:bank": "node scripts/bank-tests.mjs",
+    "fixture": "node scripts/capture-fixture.mjs",
+    "doctor": "node scripts/doctor.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "comment": "server/token.js has zero dependencies on purpose: doctor, mint, seed, fixture and test:bank all run on bare Node, so the API-level work is never blocked by an install problem. Only the browser flows need the dependencies.",
+  "dependencies": {
+    "@remoteoss/remote-flows": "1.58.0",
+    "express": "^5.2.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^5.2.0",
+    "concurrently": "^9.2.4",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.6"
+  }
+}

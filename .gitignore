@@ -1,0 +1,25 @@
+# Secrets — never commit. .env is written by the operator; the harness only reads it.
+.env
+.env.local
+.env.*.local
+
+node_modules/
+dist/
+.vite/
+
+# Generated reports and logs. Keep the directories, ignore their contents.
+results/*.json
+results/*.jsonl
+results/*.md
+results/schemas/
+results/failures/
+
+# Captured sandbox payloads. Ignored by default because they contain sandbox
+# bank data; un-ignore a specific fixture if you want it in the repo.
+fixtures/*.json
+
+.DS_Store
+*.log
+
+# Per-user Claude Code settings
+.claude/settings.local.json
